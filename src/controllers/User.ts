@@ -1,8 +1,8 @@
 import { USER } from "../module/users";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
-import { autoInc } from "../../../controllers/Counter";
-import Db from '../../../controllers/core/Db';
+import { autoInc } from "../../../code-ittyni-api";
+import {Db} from '../../../db-ittyni-api/index';
 
 class User {
 
