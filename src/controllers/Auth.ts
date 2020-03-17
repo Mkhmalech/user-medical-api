@@ -1,43 +1,43 @@
-import { Request, Response, NextFunction } from "express";
-import  jwt  from "jsonwebtoken";
+// import { Request, Response, NextFunction } from "express";
+// import  jwt  from "jsonwebtoken";
 
 
-export default (req: Request, res: Response, next : NextFunction)=> {
+// export default (req: Request, res: Response, next : NextFunction)=> {
 
-    const authHeader = <String>req.get('Authorization');
+//     const authHeader = <String>req.get('Authorization');
 
-    if(!authHeader) {
-        req.isAuth = false;
-        return next();
-    }
+//     if(!authHeader) {
+//         req.isAuth = false;
+//         return next();
+//     }
     
-    const token = authHeader.split(' ')[1];
+//     const token = authHeader.split(' ')[1];
 
 
-    if(!token || token === ''){
-        req.isAuth = false;
-        return next();
-    }
+//     if(!token || token === ''){
+//         req.isAuth = false;
+//         return next();
+//     }
 
-    let decodedToken : DecodeToken | any;
+//     let decodedToken : DecodeToken | any;
     
-    try{
-        decodedToken =  jwt.decode(token);   
-    } catch (err){
-        req.isAuth = false;
-        return next();
-    }
-    if(!decodedToken){
-        req.isAuth = false;        
-        return next();
-    }
+//     try{
+//         decodedToken =  jwt.decode(token);   
+//     } catch (err){
+//         req.isAuth = false;
+//         return next();
+//     }
+//     if(!decodedToken){
+//         req.isAuth = false;        
+//         return next();
+//     }
 
-    const { userId } : DecodeToken = decodedToken;
+//     const { userId } : DecodeToken = decodedToken;
 
-    req.isAuth = true;
+//     req.isAuth = true;
 
-    req.userId = userId;
+//     req.userId = userId;
   
-    return next();
-}
+//     return next();
+// }
 
